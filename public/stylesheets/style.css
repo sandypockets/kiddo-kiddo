@@ -87,16 +87,27 @@ main {
 
 path {
   fill: none;
+}
+
+path.domain {
+  stroke-width: 3px;
+}
+
+text {
+  font-family: "Fredoka One";
+}
+
+path.male {
+  stroke: var(--male);
   stroke-width: 15px;
   stroke-linecap: round;
   mix-blend-mode: multiply;
 }
 
-path.male {
-  stroke: var(--male);
-}
-
 path.female {
   stroke: var(--female);
+  stroke-width: 15px;
+  stroke-linecap: round;
+  mix-blend-mode: multiply;
 }
 

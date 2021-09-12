@@ -12,7 +12,8 @@ const pathsGroup = svg
   .append("g")
   .attr("class", "paths")
 
-const rankScale = d3.scaleLinear()
+const rankScale = d3.scalePow()
+  .exponent(0.25)
   .domain([1, 1000])
   .range([20, 500])
 
@@ -20,12 +21,28 @@ const dateScale = d3.scaleLinear()
   .domain([1880, 2010])
   .range([80, 915])
 
+const rankAxis = d3.axisLeft(rankScale)
+  .tickValues([1, 5, 10, 25, 50, 100, 500, 700, 1000])
+  .tickPadding(5)
+const dateAxis = d3.axisBottom(dateScale)
+  .tickFormat((d, i) => { return d + "'s" })
+  .tickPadding(5)
+
 const line = d3.line()
   .x((d, i) => { return dateScale(1880 + 10 * i) })
   .y((d, i) => { return rankScale(d) })
   .defined((d, i) => { return d != 0 })
   .curve(d3.curveCardinal.tension(0.5))
 
+svg
+  .append("g")
+  .attr("transform", "translate(60, 0)")
+  .call(rankAxis)
+
+svg
+  .append("g")
+  .attr("transform", "translate(0, 510)")
+  .call(dateAxis)
 
 
 const search = (name) => {

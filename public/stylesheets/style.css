@@ -55,3 +55,25 @@ input {
 input:focus {
   outline: none;
 }
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+div.key span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  margin: 0 5px 0 16px;
+}
+
+div.key span.male {
+  background-color: var(--male);
+}
+
+div.key span.female {
+  background-color: var(--female);
+}

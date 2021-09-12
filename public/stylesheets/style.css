@@ -77,3 +77,26 @@ div.key span.male {
 div.key span.female {
   background-color: var(--female);
 }
+
+main {
+  display: flex;
+  justify-content: center;
+  max-width: 100vw;
+  margin: 0 auto;
+}
+
+path {
+  fill: none;
+  stroke-width: 15px;
+  stroke-linecap: round;
+  mix-blend-mode: multiply;
+}
+
+path.male {
+  stroke: var(--male);
+}
+
+path.female {
+  stroke: var(--female);
+}
+

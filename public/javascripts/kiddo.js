@@ -34,6 +34,12 @@ const line = d3.line()
   .defined((d, i) => { return d != 0 })
   .curve(d3.curveCardinal.tension(0.5))
 
+const flatLine = d3.line()
+  .x((d, i) => { return dateScale(1880 + 10 * i) })
+  .y((d, i) => { return rankScale(1000) })
+  .defined((d, i) => { return d != 0 })
+  .curve(d3.curveCardinal.tension(0.5))
+
 svg
   .append("g")
   .attr("transform", "translate(60, 0)")
@@ -59,10 +65,20 @@ const search = (name) => {
       .enter()
       .append("path")
       .attr("class", (d, i) => { return d.sex })
+      .attr("d", (d, i) => { return flatLine(d.rank) })
+      .style("opacity", 0)
+      .transition()
+      .duration(500)
+      .style("opacity", 1)
       .attr("d", (d, i) => { return line(d.rank) })
 
     lines
       .exit()
+      .style("opacity", 1)
+      .transition()
+      .duration(500)
+      .style("opacity", 0)
+      .attr("d", (d, i) => { return flatLine(d.rank) })
       .remove()
 
   } else {

@@ -19,3 +19,4 @@ Kiddo Kiddo is a tool for visualizing popularity rankings of baby names between 
 
 ## 📸 Screenshots
 ![kiddo kiddo](https://github.com/sandypockets/kiddo-kiddo/blob/main/docs/kiddo-kiddo.png?raw=true)
+![kiddo kiddo](https://github.com/sandypockets/kiddo-kiddo/blob/main/docs/kiddo-kiddo-line-graph.png?raw=true)
